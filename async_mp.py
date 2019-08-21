@@ -10,7 +10,7 @@ from time import time
 def check(n):
     start = time()
     path_to_output_file = f'{n}-myoutput.txt'
-    print(path_to_output_file)
+    print(path_to_output_file)  # show the start of procedure execution - asynchronouse(?)
 
     myoutput = open(path_to_output_file, 'w')
 
@@ -18,12 +18,11 @@ def check(n):
 
     end = time()
     with open("/proc/{pid}/stat".format(pid=os.getpid()), 'rb')as p:
-        core = p.read().split()[-14]
+        core = p.read().split()[-14]  # get coreID from system file this process is actually running on
     return n, end - start, f'coreNo = {core.decode(encoding="utf-8")}'
 
 
 async def check_all():
-
     with ThreadPoolExecutor(max_workers=20) as requester:
         loop = asyncio.get_event_loop()
 
