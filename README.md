@@ -1,5 +1,5 @@
 # async_mp
-utilyzing multiprocessing parallelism with asyncio 
+utilizing multiprocessing parallelism with asyncio 
 
 someone just told there is no way to utilize multiprocessing parallelism via asyncio async/await
 
